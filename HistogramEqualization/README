@@ -1,0 +1,75 @@
+Name: Ashfaq Sherwa
+E-Mail: ashfaqms852@gmail.com
+
+This program:-
+  ->reads, writes, displays image using OIIO and OpenGL concepts.
+  ->handles input from keyboard.
+  ->performs Global Histogram Equalization and Local Histogram Equalization on the given image.
+
+  Histogram equalization is a non-linear process so splitting and equalizing each channel won't produce
+  correct results. So we have to convert RGB to HSV and equalize the intensity channel 'v'.
+  This way we do not disturb the color balance of the image.
+
+
+---------------------------------------------------------------------
+
+Compile: make
+
+Execute: ./histogram inputImage.img [outputImage.img]
+
+          where [ ]'s indicate optional parameter.
+
+Clean: make clean
+
+---------------------------------------------------------------------
+
+Instructions:
+
+w/W for writing displayed image
+q/Q/ESC to exit
+g/G for applying Global Histogram Equalization
+l/L for applying Local Histogram Equalization
+o/O for switching to original image
+
+---------------------------------------------------------------------
+
+Function Descriptions:
+Written as comments for each functions in .cpp files.
+
+---------------------------------------------------------------------
+
+Recreating Example Images:
+
+(i) butterfly_ghe.png/butterfly_lhe.png
+    ./histogram butterfly.png [butterfly_ghe.png or butterfly_lhe.png]
+    For LHE, after pressing 'l/L', enter window size as 99 in terminal.
+  
+    For comparison, you can compare butterfly_ghe.png/butterfly_lhe.png
+    to image (b) and (c) of butterfly_example.png 
+
+(ii) moon_ghe.png/moon_lhe.png
+    ./histogram moon.png [moon_ghe.png or moon_lhe.png]
+    For LHE, after pressing 'l/L', enter window size as 99 in terminal.
+  
+    For comparison, you can compare moon_ghe.png/moon_lhe.png
+    to moon_example.png 
+
+(iii) mountain_ghe.png/mountain_lhe.png
+    ./histogram mountain.jpg [mountain_ghe.png or mountain_lhe.png]
+    For LHE, after pressing 'l/L', enter window size as 99 in terminal.
+  
+    For comparison, you can compare mountain_ghe.png to
+    mountain_example.png 
+
+(iv) squares_ghe.png/squares_lhe.png
+    ./histogram squares.png [squares_ghe.png or squares_lhe.png]
+    For LHE, after pressing 'l/L', enter window size as 99 in terminal.
+  
+    For comparison, you can compare squares_ghe.png to
+    squares_example.png 
+    
+(v) girl_ghe.png/girl_lhe.png
+    ./histogram girl.jpg [girl_ghe.png or girl_lhe.png]
+    For LHE, after pressing 'l/L', enter window size as 99 in terminal.
+------------------------------------------------------------------------
+

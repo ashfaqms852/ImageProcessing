@@ -1,0 +1,96 @@
+Name: Ashfaq Sherwa
+E-Mail: ashfaqms852@gmail.com
+
+
+CpSc 6040 Programming Assignment#5
+
+This program:-
+  ->reads, writes, displays image using OIIO and OpenGL concepts.
+  ->handles input from keyboard.
+  Depending on the flag provided by user at command line it performs
+  ->simple tonemap(-g flag) on the image file provided 
+    by user.
+  ->tone mapping with convolution (-c flag) and
+  ->tone mapping with convolution using bilateral filter (-b flag)
+
+
+---------------------------------------------------------------------
+
+Compile: make
+
+Execute: ./tonemap inputImage.img -g gamma_value [outputImage.img]
+         OR
+         ./tonemap inputImage.img -c [outputImage.img
+         OR
+         ./tonemap inputImage.img -b [outputImage.img]
+where [ ]'s indicate optional parameter.
+
+Clean: make clean
+
+---------------------------------------------------------------------
+
+Instructions:
+
+Press w/W for writing displayed image.
+      s/S to switch between original image and toned image.
+
+Use -g flag for simple tonemap,
+    -c flag for tonemap for convoluted tonemap and
+    -b flag for convoluted tonemap using bilateral filter.
+
+---------------------------------------------------------------------
+
+Function Descriptions:
+Written as comments for each functions in .cpp files.
+
+---------------------------------------------------------------------
+
+Boundary Mechanism:
+For boundary mechanism, I have used padding technique. If the filter
+is of size 's' then I am adding a boundary of 's/2' on all four sides
+of the image.
+I am setting the pixels that fall outside image boundary to black.
+
+void padImage() method does this job.
+
+---------------------------------------------------------------------
+
+Recreate Example Images:
+
+(i) Ocean_SimpleToneMap_045.png
+    ./tonemap Ocean.exr -g 0.45 Ocean_SimpleToneMap_045.png
+
+(ii) Ocean_Conv_10_5.png
+    ./tonemap Ocean.exr -c Ocean_Conv_10_5.png
+    Box filter's sigma value = 10 and 
+    Contrast threshold = 5
+
+(iii) Ocean_Bilateral_5_5.png
+    ./tonemap Ocean.exr -c Ocean_Bilateral_5_5.png
+    Box filter's sigma value = 5 and 
+    Contrast threshold = 5
+
+(iv) sDC_SimpleToneMap_015.png
+     ./tonemap smallDesignCenter.hdr -g 0.15 sDC_SimpleToneMap_015.png
+
+(v) sDC_Conv_3_30.png
+    ./tonemap smallDesignCenter.hdr -c sDC_Conv_3_30.png
+    Box filter's sigma value = 3 and 
+    Contrast threshold = 30
+
+(vi) sDC_Bilateral_5_30.png
+    ./tonemap smallDesignCenter.hdr -c sDC_Bilateral_5_30.png
+    Box filter's sigma value = 5 and 
+    Contrast threshold = 30
+
+For (iii) and (vi) images, halos are diminished and details of image start 
+appearing.
+
+------------------------------------------------------------------------
+
+Notes:
+
+My program generates a box filter itself and uses it for convolution.
+
+------------------------------------------------------------------------
+

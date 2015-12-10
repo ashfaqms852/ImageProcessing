@@ -1,0 +1,70 @@
+Name: Ashfaq Sherwa
+E-Mail: ashfaqms852@gmail.com
+
+
+CpSc 6040 Programming Assignment# 6
+
+This program:-
+  ->reads, writes, displays image using OIIO and OpenGL concepts.
+  ->handles input from keyboard.
+  Depending on the input from user it performs-
+  ->rotation
+  ->translation
+  ->shearing
+  ->scaling and
+  ->twirling
+
+
+---------------------------------------------------------------------
+
+Compile: make
+
+Execute: ./warper inputImage.img [outputImage.img]
+
+          where [ ]'s indicate optional parameter.
+
+Clean: make clean
+
+---------------------------------------------------------------------
+
+Instructions:
+
+Press w/W for writing displayed image.
+      q/Q/ESC to exit.
+
+Valid Commands: 'r' -> Rotating, 's' -> Scaling, 't' -> Translating
+                'h' -> Shear, 'n' -> Twirl and 'd' -> Done.
+                You may use multiple commands except for 'n'
+                Enter 'd' command to indicate that you are done.
+
+---------------------------------------------------------------------
+
+Function Descriptions:
+Written as comments for each functions in .cpp files.
+
+---------------------------------------------------------------------
+
+Recreating Example Images:
+
+(i) rotating.jpg
+    ./warper levinej.jpg rotating.jpg
+    Enter theta as 60.
+
+(ii) scaling.jpg
+     ./warper levinej.jpg scaling.jpg
+     Enter scaling factors sX and sY as 0.5 and 0.5 respectively.
+
+(iii) translating.jpg
+      ./warper levinej.jpg translating.jpg
+      Enter translating factors dX and dY as 120 and 120 respectively. 
+
+(iv) shearing.jpg
+     ./warper levinej.jpg shearing.jpg
+     Enter sheraring factors hX and hY as 0.5 and 0.5 respectively.
+    
+(v) twirling.jpg
+    ./warper levinej.jpg twirling.jpg
+    Enter twirling factors s, cX and cY as 3.5, 0.5 and 0.5 respectively.
+
+------------------------------------------------------------------------
+

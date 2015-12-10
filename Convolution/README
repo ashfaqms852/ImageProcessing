@@ -1,0 +1,112 @@
+Name: Ashfaq Sherwa
+E-Mail: ashfaqms852@gmail.com
+
+
+CpSc 6040 Programming Assignment#4
+
+This program:-
+  ->reads, writes, displays image using OIIO and OpenGL concepts.
+  ->handles input from keyboard.
+  ->performs convolution using filter and image file provided by the user.
+  ->performs convolution using gabor filter if -g flag is specified at command line instead of filter file.
+
+
+---------------------------------------------------------------------
+
+Compile: make
+Execute: ./filt filterFile.filt inputImage.img [outputImage.img] (Applies specified filter)
+         OR
+         ./filt -g theta sigma period inputImage.img [outputImage.img] (Applies Gabor Filter)
+where [ ]'s indicate optional parameter.
+Clean: make clean
+
+---------------------------------------------------------------------
+
+Instructions:
+
+Press w/W for writing displayed image.
+      c/C to convolute the image.
+      r/R to revert to original image.
+
+---------------------------------------------------------------------
+
+Function Descriptions:
+Written as comments for each functions in .cpp files.
+
+---------------------------------------------------------------------
+
+Normalization Method:
+
+I have normalized each channel value for each pixel in image using
+following formula:
+newValue = (currentValue - mini) / (maxi - mini)
+where mini and maxi are the minimum and maximum channel values in
+the image.
+
+--------------------------------------------------------------------
+
+Boundary Mechanism:
+For boundary mechanism, I have used padding technique. If the filter
+is of size 's' then I am adding a boundary of 's/2' on all four sides
+of the image.
+I am setting the pixels that fall outside image boundary to black.
+
+void padImage() method does this job.
+
+---------------------------------------------------------------------
+
+Experimentation:
+
+=> squares.png with
+
+(i) bell9.filt - Less blurred. Blurred the edges of square evenly.
+                 Edges and corners more sharper than with box9.filt
+    output: squares_bell9.png
+
+(ii) box9.filt - More blurred with equal weight effect. Round-offs
+                 of edges and corners.
+     output: squares_box9.png
+
+(iii) tent9.filt - Almost similar to bell9.filt or between bell9.filt
+                   and box9.filt.
+      output: squares_tent9.png
+
+=> checkers.png with
+
+(i) hp.filt - Highlights the edges of the image.
+    output: checkers_hp.png
+
+(ii) sobol-horiz.filt - Highlights the vertical lines in the image.
+     output: checkers_sobol_horiz.png 
+
+(iii) sobot-vert.filt - Highlights the horizontal lines in the image.
+      output: checkers_sobol_vert.png
+
+=> brushes.png with
+
+(i) filter1.filt: Blur effect, reduces brightness and lifts up the
+                  surrounding pixels.
+    output: brushes_filter1.png
+
+(ii) filter2.filt: Masks the image. Only horizontal and vertical
+                   edges remain.
+     output: brushes_filter2.png
+
+Note: filter1.filt and filter2.filt are the two convolution kernels
+      defined by me.
+
+=> test.png with
+
+(i) -g 0 20 20 (Applies Gabor filter) gives test_0_20_20.png
+    This produces silimar image as we have in pa04.pdf
+
+(ii) -g 45 10 10 gives test_45_10_10.png
+     Again this is similar to image given in pa04.pdf
+
+=> geometry.png with
+
+(i) -g 45 4 8 gives geometry_45_4_8.png
+    Edges of the figures show up at angle of 45 degree.  
+
+----------------------------------------------------------------------
+

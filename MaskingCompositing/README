@@ -1,0 +1,80 @@
+Name: Ashfaq Sherwa
+E-Mail: ashfaqms852@gmail.com
+
+
+CpSc 6040 Programming Assignment#3
+
+This program:-
+  ->reads, writes, displays image using OIIO and OpenGL concepts.
+  ->handles input from keyboard.
+  ->converts rgb pixel to hsv format.
+  ->performs masking of the image using different methods like -
+    binary, greyscale, petro vlahos and spill supression. It also
+    performs masking depending on h,s and v values.
+  ->composites an image supporting 4 channels over an image supporting 3 channels.
+
+
+--------------------------------------------------------------------
+
+Compile: make all
+
+Execute: ./alphamask didaw.jpg (for simple masking)
+         ./alphamask -pv didaw.jpg (for only petro vlahos)
+         ./alphamask -ss didaw.jpg (for only spill supression)
+         ./alphamask -pv -ss didaw.jpg (for both petro vlahos and spill supression)
+
+         ./composite fg.png bg.png (performs A over B or B over A depending on the number of channels A and B have.)
+
+Optionally, you can add "filename.ext" at the end of each command if you want 
+to write the displayed image.
+
+Clean: make clean
+
+--------------------------------------------------------------------
+
+Instructions:
+
+After giving the simple masking command i.e. ./alphamask didaw.jpg , press :
+1 for Binary Alphamasking
+2 for Greyscale Alphamasking
+3 for Alphamasking using h,s and v values.(Achieves the best result)
+
+Press w/W to write the displayed image.
+
+UP and DOWN arrow keys increases and decreases the value of k in
+petro vlahos algorithm by 0.05 respectively.
+
+--------------------------------------------------------------------
+
+Function Descriptions:
+Written as comments for each funtion in .cpp files.
+
+--------------------------------------------------------------------
+
+Notes:
+
+My preferred parameters for hue, saturation and value threshold are
+hardcoded. No need to read parameters from some file.
+
+My preferred test images are didaw.jpg(for alphamask program) and 
+bg.png fg.png(for composite program). I have achieved best results 
+with these set of images. I have used alphamasking using hsv for
+getting fg.png
+
+I have also attached the composite result(composite.png) of bg.png 
+and fg.png
+
+Alphamasking using hsv values method achieves the best results for all
+the images.
+
+--------------------------------------------------------------------
+
+Know Problem:
+
+My hardcoded thresholds :-
+->for alphamasking using hsv, they work for every image in greenscreen.zip
+->for binary and greyscale alphamasking, they work for every image 
+except for aduchow.jpg, dhouse.jpg and hand.jpg
+
+
+

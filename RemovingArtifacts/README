@@ -1,0 +1,99 @@
+Name: Ashfaq Sherwa
+E-Mail: ashfaqms852@gmail.com
+
+
+CpSc 6040 Programming Assignment# 7
+
+This program:-
+  ->reads, writes, displays image using OIIO and OpenGL concepts.
+  ->handles input from keyboard.
+  Depending on the input from user it performs-
+  ->rotation
+  ->translation
+  ->shearing
+  ->scaling and
+  ->twirling
+This program also repairs the minification and magnification artifacts using super-sampling and bilinear interpolation.
+
+---------------------------------------------------------------------
+
+Compile: make
+
+Execute: ./warper inputImage.img [outputImage.img]
+
+          where [ ]'s indicate optional parameter.
+
+Clean: make clean
+
+---------------------------------------------------------------------
+
+Instructions:
+
+Press w/W for writing displayed image.
+      q/Q/ESC to exit.
+      b/B remove only magnification artificats using bilinear interpolation.
+      r/R remove both magnification and minification artifacts using
+          bilinear interpolation and super-sampling.
+
+Valid Commands: 'r' -> Rotating, 's' -> Scaling, 't' -> Translating
+                'h' -> Shear, 'n' -> Twirl, 'p' -> Perspective and 'd' -> Done.
+                You may use multiple commands except for 'n'
+                Enter 'd' command to indicate that you are done.
+
+---------------------------------------------------------------------
+
+Function Descriptions:
+Written as comments for each functions in .cpp files.
+
+---------------------------------------------------------------------
+
+Recreating Example Images:
+
+(i) perspective.png
+    ./warper construction.tif perspective.png   
+
+(ii) perspective_magni.png
+    ./warper construction.tif perspective_magni.png
+   
+    Press b/B.
+    Here you can observe that the image becomes bit smooth.
+    Light parrot green color rods become more clear.
+    Used bilinear interpolation to remove magnification artifacts.    
+
+(iii) perspective_mini_magni.png
+    ./warper construction.tif perspective_mini_magni.png 
+     
+    Press r/R.
+    When we zoom in, we can see that the zigzag boundaries of the 
+    perspective_magni.png become straight. 
+    Used super-sampling as my anti-aliasing technique.
+    This also involves using bilinear interpolation.  
+
+    Enter perspective factos pX and pY as 0.002 and -0.001 respectively
+    for (i), (ii), and (iii).
+ 
+(iv) twirl.png
+    ./warper construction.tif twirl.png
+
+(v) twirl_magnif.png
+    ./warper construction.tif twirl.png
+    
+    Press b/B.
+    Here you can observe that the image becomes bit smooth.
+    Light parrot green color rods become more clear.
+    Used bilinear interpolation to remove magnification artifacts.    
+
+(vi) twirl_mini_magni.png
+    ./warper construction.tif twirl.png
+    
+    Press r/R.
+    When we zoom in, we can see that the zigzag boundaries of the 
+    twirl_magni.png become straight. 
+    Used super-sampling as my anti-aliasing technique.  
+    This also involves using bilinear interpolation.  
+
+    Enter twirling factors s, cX and cY as 3.5, 0.5 and 0.5 respectively
+    for (iv), (v) and (vi).
+
+------------------------------------------------------------------------
+

@@ -1,0 +1,46 @@
+Name: Ashfaq Sherwa
+E-Mail: ashfaqms852@gmail.com
+
+This program reads, writes, displays and manipulates image using OIIO and OpenGL concepts.
+It also handles input from keyboard and mouse.
+
+CpSc 6040 Programming Assignment#1
+--------------------------------------------------------------------
+Compile: make
+Execute: ./oiioview
+
+--------------------------------------------------------------------
+Instructions:
+To just display/read a single image, specify a valid filename followed by ./oiioview
+To write a file, specify two filenames after ./oiioview. First filename would be read and written to second filename.
+To read multiple files, specify them in order in which you want to display after ./oiioview.
+(Basic Requirement 5)
+--------------------------------------------------------------------
+Design Choices:
+I have selected an unsigned char array to store my image.
+
+--------------------------------------------------------------------
+Function Descriptions:
+
+void displayImage() - Displays the image stored in pixels[]. (Basic Requirement 1)
+
+bool readImage(std::string filename) - Reads the image. (Basic Requirement 2)
+
+bool writeImg() - Writes(on pressing W/w) the image. (Basic Requirement 3)
+
+void manipulateImage(char c) - Performs several manipulations on the image. For e.g. horizontal flip(on pressing F/f) , vertical flip(I/i), display only red(R/r), green(G/g) and blue(B/b) channel in the image. (Basic Requirement 4, 6040 Requirement 1,2)
+
+void handleKey(unsigned char key , int x , int y) - Handles the input from the keyboard. (Basic Requirement 6)
+
+void handleMouse(int button, int value, int x, int y) - Handles the input from mouse. On a mouse click, it would display (x,y) co-ordinates and rgba values. (Basic Requirement 6)
+
+void leftRightArrowKeys(int key , int x, int y) - Navigates through specified images when user presses left or right arrow key. (6040 Requirement 4)
+
+bool fileExists(const std::string& filename) - Checks if the given filename exists or not.
+
+---------------------------------------------------------------------
+Known problem:
+I have implemented atleast two 6040 requirements - displaying only red, green or blue channel and flipping image vertically.
+I tried to implement left right navigation for the extra credit but couldn't implement it entirely.
+It works but there is some problem with display not being cleared before drawing or with raster position.
+

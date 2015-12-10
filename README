@@ -1,0 +1,10 @@
+Name: Ashfaq Sherwa
+E-Mail: ashfaqms852@gmail.com
+
+
+CpSc 6040 Image Processing Tool
+
+Technologies Used: C++, OpenGL, GLUT, OpenImageIO. 
+
+Developed an image processing tool which performed functions like alpha-masking, compositing, convolution, 
+tone-mapping, warping, morphing, removing artifacts and histogram equalization.
